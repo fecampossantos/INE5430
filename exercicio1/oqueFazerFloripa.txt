@@ -1,0 +1,114 @@
+## o que fazer em Florianopolis
+#passeios romanticos
+# https://www.pousadadoschas.com.br/blog/9-dicas-de-passeios-romanticos-em-florianopolis/
+local(lagoa_da_conceicao)
+local(santo_antonio_de_lisboa)
+local(rota_gastronomica_de_coqueiros)
+local(igreja_sao_francisco_de_paula)
+
+#pontos turisticos
+# https://www.tripadvisor.com.br/Attractions-g303576-Activities-Florianopolis_State_of_Santa_Catarina.html
+local(museu_cruz_e_souza)
+local(ponte_hercilio_luz)
+local(mercado_municipal)
+local(lagoinha_do_leste)
+local(gravata)
+local(piscinas_naturais_da_barra)
+
+#familia
+# https://novotel.accor.com/pt-br/editorial/article/o-que-fazer-em-florianopolis-com-criancas-2-1111-v6210.shtml
+local(barco_pirata)
+local(parque_de_coqueiros)
+local(ilha_do_campeche)
+local(dunas)
+local(lagoa_do_peri)
+local(praia_da_daniela)
+local(projeto_lontra)
+local(projeto_tamar)
+local(shopping_beira_mar)
+local(shopping_villa_romana)
+local(floripa_shopping)
+
+tipo(lagoinha_do_leste,trilha)
+tipo(gravata,trilha)
+tipo(piscinas_naturais_da_barra,trilha)
+tipo(ilha_do_campeche,praia)
+tipo(praia_da_daniela,praia)
+tipo(shopping_beira_mar, shopping)
+tipo(shopping_villa_romana, shopping)
+tipo(floripa_shopping, shopping)
+tipo(mercado_municipal,alimentacao)
+tipo(lagoa_da_conceicao,turismo)
+tipo(santo_antonio_de_lisboa,turismo)
+tipo(rota_gastronomica_de_coqueiros,turismo)
+tipo(igreja_sao_francisco_de_paula,turismo)
+tipo(museu_cruz_e_souza,turismo)
+tipo(ponte_hercilio_luz,turismo)
+tipo(barco_pirata,turismo)
+tipo(dunas,turismo)
+tipo(lagoa_do_peri,turismo)
+tipo(projeto_lontra,turismo)
+tipo(projeto_tamar,turismo)
+
+custo()
+custo(lagoa_da_conceicao, baixo)
+custo(santo_antonio_de_lisboa, medio)
+custo(rota_gastronomica_de_coqueiros, alto)
+custo(igreja_sao_francisco_de_paula, baixo)
+
+custo(museu_cruz_e_souza, baixo)
+custo(ponte_hercilio_luz, baixo)
+custo(mercado_municipal, alto)
+custo(lagoinha_do_leste, baixo)
+custo(gravata, baixo)
+custo(piscinas_naturais_da_barra, baixo)
+
+custo(barco_pirata, alto)
+custo(parque_de_coqueiros, baixo)
+custo(ilha_do_campeche, alto)
+custo(dunas, medio)
+custo(lagoa_do_peri, medio)
+custo(praia_da_daniela, baixo)
+custo(projeto_lontra, baixo)
+custo(projeto_tamar, baixo)
+
+custo(shopping_beira_mar, medio)
+custo(shopping_villa_romana, medio)
+custo(floripa_shopping, medio)
+
+
+companhia(lagoa_da_conceicao, casal)
+companhia(santo_antonio_de_lisboa, casal)
+companhia(rota_gastronomica_de_coqueiros, casal)
+companhia(igreja_sao_francisco_de_paula, casal)
+
+companhia(museu_cruz_e_souza, familia)
+companhia(ponte_hercilio_luz, familia)
+companhia(mercado_municipal, familia)
+companhia(lagoinha_do_leste, casal)
+companhia(gravata, casal)
+companhia(piscinas_naturais_da_barra, familia)
+
+companhia(barco_pirata, familia)
+companhia(parque_de_coqueiros, familia)
+companhia(ilha_do_campeche,familia)
+companhia(dunas,familia)
+companhia(lagoa_do_peri,familia)
+companhia(praia_da_daniela,familia)
+companhia(projeto_lontra,familia)
+companhia(projeto_tamar,familia)
+companhia(shopping_beira_mar, familia)
+companhia(shopping_villa_romana, familia)
+companhia(floripa_shopping, familia)
+
+
+####
+## perguntas a serem respondidas
+
+# 1. Quais as alternativas de baixo custo para se ir em casal?
+
+# 2. Quais as alternativas de medio custo para se ir em familia?
+
+# 3. Se tenho pouco dinheiro para gastar, que alternativas tenho?
+
+# 4. Quais alternativas para turismo tenho, de baixo ou medio custo?
