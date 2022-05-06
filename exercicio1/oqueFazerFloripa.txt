@@ -50,7 +50,6 @@ tipo(lagoa_do_peri,turismo)
 tipo(projeto_lontra,turismo)
 tipo(projeto_tamar,turismo)
 
-custo()
 custo(lagoa_da_conceicao, baixo)
 custo(santo_antonio_de_lisboa, medio)
 custo(rota_gastronomica_de_coqueiros, alto)
@@ -102,13 +101,20 @@ companhia(shopping_villa_romana, familia)
 companhia(floripa_shopping, familia)
 
 
-####
+################################################################################
 ## perguntas a serem respondidas
 
 # 1. Quais as alternativas de baixo custo para se ir em casal?
+custo(x, baixo) :- companhia(x, casal)
 
 # 2. Quais as alternativas de medio custo para se ir em familia?
+custo(x, medio) :- companhia(x, familia)
 
 # 3. Se tenho pouco dinheiro para gastar, que alternativas tenho?
+custo(x, baixo)
 
 # 4. Quais alternativas para turismo tenho, de baixo ou medio custo?
+tipo(x, turismo) :- (custo(x, medio), custo(x, baixo)) [nesse caso, a virgula representa OU]
+
+# 5. Se quero ir com a minha namorada em algo de turismo e gastar pouco, aonde vou?
+companhia(x, casal) :- (tipo(x, turismo); custo(x, baixo)) [nesse caso, o ponto-e-virgula representa E]
