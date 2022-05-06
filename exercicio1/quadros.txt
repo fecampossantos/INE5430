@@ -1,0 +1,171 @@
+(Elefante-Real
+<:IS-A Elefante>
+<:Cor Branca>...)
+(raja
+<:INSTANCE-OF Elefante>
+<:Tamanho-das-orelhas pequenas>...)
+
+(Custo)
+(Baixo
+  <:IS-A Custo>
+)
+(Medio
+  <:IS-A Custo>
+)
+(Alto
+  <:IS-A Custo>
+)
+
+(Companhia)
+(Familia
+  <: IA-A Companhia>
+)
+(Casal
+  <: IA-A Companhia>
+)
+
+(Tipo)
+(Alimentacao
+  <:IS-A Tipo >
+)
+(Shopping
+  <:IS-A Tipo >
+)
+(Trilha
+  <:IS-A Tipo >
+)
+(Praia
+  <:IS-A Tipo >
+)
+(Turismo
+  <:IS-A Tipo >
+)
+
+
+(Local)
+(lagoa_da_conceicao
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Casal>
+  <:Tipo Turismo>
+)
+(santo_antonio_de_lisboa
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Casal>
+  <:Tipo Turismo>
+)
+(rota_gastronomica_de_coqueiros
+  <:IS-A Local>
+  <:Custo Alto>
+  <:Companhia Casal>
+  <:Tipo Alimentacao>
+)
+(igreja_sao_francisco_de_paula
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Casal>
+  <:Tipo Turismo>
+)
+(museu_cruz_e_souza
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(ponte_hercilio_luz
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(mercado_municipal
+  <:IS-A Local>
+  <:Custo Alto>
+  <:Companhia Familia>
+  <:Tipo Alimentacao>
+)
+(lagoinha_do_leste
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Casal>
+  <:Tipo Trilha>
+)
+(gravata
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Casal>
+  <:Tipo Trilha>
+)
+(piscinas_naturais_da_barra
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Familia>
+  <:Tipo Trilha>
+)
+(barco_pirata
+  <:IS-A Local>
+  <:Custo Alto>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(parque_de_coqueiros
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(ilha_do_campeche
+  <:IS-A Local>
+  <:Custo Alto>
+  <:Companhia Familia>
+  <:Tipo Praia>
+)
+(dunas
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(lagoa_do_peri
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(praia_da_daniela
+  <:IS-A Local>
+  <:Custo Baixo>
+  <:Companhia Familia>
+  <:Tipo Praia>
+)
+(projeto_lontra
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(projeto_tamar
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(shopping_beira_mar
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(shopping_villa_romana
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
+(floripa_shopping
+  <:IS-A Local>
+  <:Custo Medio>
+  <:Companhia Familia>
+  <:Tipo Turismo>
+)
