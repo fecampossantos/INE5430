@@ -42,27 +42,22 @@ body(smooth).
 body(creamy).
 body(light).
 
-% IBU is measured from 0 to 100. In this program, the IBU is shown as qualitative measure.
-% example, if the IBU for Lager goes from 8 to 18, in here it will be shown as mediumLow
-%IBU(low).           % 0 - 35    =>    low
-%IBU(medium).        % 46 - 70   =>    medium
-
 
 % % % % % % % % % % % % % % % %
 %     BEER CHARACTERISTICS    %
 % % % % % % % % % % % % % % % %
-characteristics(al, Aroma, Flavor, Body, IBU) :- (Aroma = sweet),   (Flavor = crisp), (Body = smooth),  (IBU = low),!.
-characteristics(ca, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = creamy),  (IBU = low),!.
-characteristics(wb, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = sweet), (Body = creamy),  (IBU = low),!.
-characteristics(ra, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = smooth),  (IBU = low),!.
-characteristics(mb, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = creamy),  (IBU = low),!.
-characteristics(ba, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = malty), (Body = smooth),  (IBU = medium),!.
-characteristics(pa, Aroma, Flavor, Body, IBU) :- (Aroma = hop),     (Flavor = malty), (Body = smooth),  (IBU = medium),!.
-characteristics(is, Aroma, Flavor, Body, IBU) :- (Aroma = dry),     (Flavor = dry),   (Body = creamy),  (IBU = medium),!.
-characteristics(ip, Aroma, Flavor, Body, IBU) :- (Aroma = dry),     (Flavor = dry),   (Body = light),   (IBU = medium),!.
-characteristics(go, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = crisp), (Body = light),   (IBU = low),!.
-characteristics(wi, Aroma, Flavor, Body, IBU) :- (Aroma = sweet),   (Flavor = sweet), (Body = light),   (IBU = low),!.
-characteristics(cs, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = crisp), (Body = light),   (IBU = low),!.
+characteristics(al, Aroma, Flavor, Body, IBU) :- (Aroma = sweet),   (Flavor = crisp), (Body = smooth),!.
+characteristics(ca, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = creamy),!.
+characteristics(wb, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = sweet), (Body = creamy),!.
+characteristics(ra, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = smooth),!.
+characteristics(mb, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = creamy),!.
+characteristics(ba, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = malty), (Body = smooth),!.
+characteristics(pa, Aroma, Flavor, Body, IBU) :- (Aroma = hop),     (Flavor = malty), (Body = smooth),!.
+characteristics(is, Aroma, Flavor, Body, IBU) :- (Aroma = dry),     (Flavor = dry),   (Body = creamy),!.
+characteristics(ip, Aroma, Flavor, Body, IBU) :- (Aroma = dry),     (Flavor = dry),   (Body = light), !.
+characteristics(go, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = crisp), (Body = light), !.
+characteristics(wi, Aroma, Flavor, Body, IBU) :- (Aroma = sweet),   (Flavor = sweet), (Body = light), !.
+characteristics(cs, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = crisp), (Body = light), !.
 
 
 % % % % % % % % % % % % % % % %
