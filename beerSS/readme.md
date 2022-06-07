@@ -305,3 +305,6 @@ pairing(Beer_Name, dessert, cake) :- best_beer(Beer_Code, fruits, crisp, light),
 pairing(Beer_Name, dessert, fruits) :- best_beer(Beer_Code, _, malty, smooth), name(Beer_Code, Beer_Name).
   
   ```
+
+  ## Trying the program online
+  The easiest way to try and test this program, is copying the [code](https://github.com/felipecampossantos/INE5430-Artificial-Inteligence/blob/main/beerSS/beers.pl) and pasting it in and [online SWI-Prolog](https://swish.swi-prolog.org/)
