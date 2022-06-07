@@ -50,7 +50,6 @@ characteristics(al, Aroma, Flavor, Body, IBU) :- (Aroma = sweet),   (Flavor = cr
 characteristics(ca, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = creamy),!.
 characteristics(wb, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = sweet), (Body = creamy),!.
 characteristics(ra, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = smooth),!.
-characteristics(mb, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = creamy),!.
 characteristics(ba, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = malty), (Body = smooth),!.
 characteristics(pa, Aroma, Flavor, Body, IBU) :- (Aroma = hop),     (Flavor = malty), (Body = smooth),!.
 characteristics(is, Aroma, Flavor, Body, IBU) :- (Aroma = dry),     (Flavor = dry),   (Body = creamy),!.
@@ -58,6 +57,7 @@ characteristics(ip, Aroma, Flavor, Body, IBU) :- (Aroma = dry),     (Flavor = dr
 characteristics(go, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = crisp), (Body = light), !.
 characteristics(wi, Aroma, Flavor, Body, IBU) :- (Aroma = sweet),   (Flavor = sweet), (Body = light), !.
 characteristics(cs, Aroma, Flavor, Body, IBU) :- (Aroma = fruity),  (Flavor = crisp), (Body = light), !.
+characteristics(mb, Aroma, Flavor, Body, IBU) :- (Aroma = malted),  (Flavor = sweet), (Body = creamy),!.
 
 
 % % % % % % % % % % % % % % % %
@@ -87,10 +87,6 @@ food(meat).
 food(appetizer).
 food(dessert).
 
-% % % % % % % % % % % % % % % %
-%             CHOICE          %
-% % % % % % % % % % % % % % % %
-% best_choice() :-
 
 
 % % % % % % % % % % % % % % % %
@@ -251,7 +247,7 @@ pairing(Beer_Name, pasta, garlic) :- best_beer(Beer_Code, sweet, _, light), name
 %     body = creamy
 pairing(Beer_Name, pasta, pesto) :- best_beer(Beer_Code, malted, sweet, creamy), name(Beer_Code, Beer_Name).
 
-% RULE :
+% RULE : 
 %   if food == meat
 %     and plate = chicken
 %   THEN
@@ -302,7 +298,7 @@ pairing(Beer_Name, appetizer, peanuts) :- best_beer(Beer_Code, fruity, sweet, cr
 %     body = smooth
 pairing(Beer_Name, appetizer, chips) :- best_beer(Beer_Code, sweet, crisp, smooth), name(Beer_Code, Beer_Name).
 
-% RULE :American Lager
+% RULE : American Lager
 %   if food == appetizer
 %     and plate = nachos
 %   THEN
