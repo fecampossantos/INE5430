@@ -1,0 +1,7 @@
+MAS resourceCollection {
+    environment: env.planetEnv
+
+    agents:
+        miner #3;
+        builder;
+}
