@@ -1,7 +1,0 @@
-numpy
-pandas
-matplotlib
-seaborn
-tensorflow
-sklearn
-h5py
