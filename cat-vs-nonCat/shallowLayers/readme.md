@@ -39,9 +39,7 @@ Accuracy: 0.7600
 
 - accuracy may differ, I believe that the free memory on the computer at the time the app is running interfers with the results.
 
-The app will also create some windows with graphs. Here are some examples:
-![accuracy](https://user-images.githubusercontent.com/36992818/180018651-e855ea6c-97be-49c8-a7fe-839ec33eea61.png)
-![loss](https://user-images.githubusercontent.com/36992818/180018667-74bfd4f5-cb40-4559-9a8b-41a321aa78fd.png)
+The app will also create some windows with graphs. Here are some examples:  
+![accuracy](https://user-images.githubusercontent.com/36992818/180018651-e855ea6c-97be-49c8-a7fe-839ec33eea61.png)  
+![loss](https://user-images.githubusercontent.com/36992818/180018667-74bfd4f5-cb40-4559-9a8b-41a321aa78fd.png)  
 ![prediction](https://user-images.githubusercontent.com/36992818/180018676-20b0ad2d-2fa8-445d-b174-3b31eb0fd5e2.png)
-
-

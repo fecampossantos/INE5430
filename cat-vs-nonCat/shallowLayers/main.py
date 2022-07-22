@@ -3,7 +3,6 @@ from re import T
 import numpy as np
 # DataFrames for tabular data
 import pandas as pd
-import os             # set working directory, run executables
 import matplotlib.pyplot as plt  # for plotting
 import matplotlib.image as mpimg
 import seaborn as sns
@@ -37,13 +36,13 @@ def exp_decay(epoch):
 # _SHOW_GRAPHS = False
 _SHOW_GRAPHS = True
 # _SHOW_FITTING_OUTPUT = 1 # TRUE
-_SHOW_FITTING_OUTPUT = 0 # FALSE
+_SHOW_FITTING_OUTPUT = 0 # 0=FALSE 1=TRUE
 _SHOW_EXAMPLES = False
 _NUMBER_EXAMPLES_SHOWN_TRAINING_SET = 10
-_PRINT_MODEL_SUMMARY = True
+_PRINT_MODEL_SUMMARY = False
 
 _HIDDEN_LAYER_NEURONS_NUMBER = 400
-_OUTPUT_LAYER_NEURONS_NUMBER = 2
+_OUTPUT_LAYER_NEURONS_NUMBER = 2 # binary, must be two
 
 _ADD_LEARNING_RATE_CALLBACK = False
 _ADD_EARLY_STOP_CALLBACK = False
@@ -52,10 +51,10 @@ _SIGMOID = "sigmoid"
 # _SOFTMAX="softmax"
 _RANDOM_UNIFORM = "random_uniform"
 _TANH = "tanh"
-_LEARNING_RATE = 0.06
+_LEARNING_RATE = 0.03
 _TEST_SIZE = 0.3
-_EPOCHS = 200
-_BATCH_SIZE = 64
+_EPOCHS = 300
+_BATCH_SIZE = 400 #64
 
 ## import datasets
 trainining_ds = h5.File('../datasets/train_catvnoncat.h5', "r")
@@ -70,12 +69,6 @@ Ytrain = np.array(
 Xtest = np.array(
     testing_ds["test_set_x"][:])  # test set features
 Ytest = np.array(testing_ds["test_set_y"][:])  # test set labels
-
-
-# print(Xtrain.shape) # (209, 64, 64, 3)
-# print(Ytrain.shape) # (209, )
-# print(Xtest.shape)  # (50, 64, 64, 3)
-# print(Ytest.shape)  # (50, )
 
 # Normalizing values
 Xtrain = Xtrain/255.0
@@ -112,9 +105,6 @@ model.add(layers.Dense(_OUTPUT_LAYER_NEURONS_NUMBER, kernel_initializer=_RANDOM_
 opt = tf.keras.optimizers.SGD(learning_rate=_LEARNING_RATE)
 model.compile(optimizer=opt, loss="categorical_crossentropy",
               metrics=["accuracy"])
-
-# model.compile(optimizer="adam", loss="categorical_crossentropy",
-#               metrics=["accuracy"])
 
 input_shape = Xtrain.shape
 model.build(input_shape)
