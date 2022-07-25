@@ -76,7 +76,7 @@ resource_needed(1).
 // If there is not is not R left on the cell, warn other about it
 +!check_for_remaining_resource : resource_needed(R) & not found(R) 
 	<- -found_resource_at(R,X,Y);
-	.broadcast(untell,found_resource_at(R,X,Y)).
+	.broadcast(untell, found_resource_at(R,X,Y)).
 	
 +!go(Position) 
    :  pos(Position,X,Y) & my_pos(X,Y)
@@ -96,4 +96,5 @@ resource_needed(1).
 @pbf[atomic]
 +building_finished : true
    <- .drop_all_desires;
+      .print("Finished! Boss, here I come!");
       !go(boss).
