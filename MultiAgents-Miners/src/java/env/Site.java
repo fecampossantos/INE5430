@@ -14,9 +14,14 @@ public class Site extends PlanetCell {
 
     public Site() {
         
-        r1needed = 40;
-        r2needed = 40;
-        r3needed = 40;
+        // r1needed = 40;
+        // r2needed = 40;
+        // r3needed = 40;
+
+        // changed so the tests can be faster
+        r1needed = 10;
+        r2needed = 10;
+        r3needed = 10;
         
         r1store = 0;
         r2store = 0;
