@@ -2,49 +2,54 @@ pos(boss,15,15).
 checking_cells.
 resource_needed(1).
 
-+my_pos(X,Y) 
++my_pos(X,Y)
    :  checking_cells & not building_finished
-   <- //!check_for_resources.
-   !check_for_found_resources.
+   <- !warn_others_about_resource;                          // check if there is any resources
+      !check_for_resources.
+   
 
++!warn_others_about_resource : found(R) & my_pos(X,Y)       // if any resource is found at (X,Y)
+   <- +found_resource_at(R,X,Y);                            // saves location
+      .print("Warning others about Resource ",R," found at (",X,",",Y,")");
+      .broadcast(tell, found_resource_at(R,X,Y)).           // warn others about the location
+
+
++found_resource_at(R,X,Y) : true.
+
+
+// If the miner receives a message warning that the resource is over at (X,Y),
+// it checks if there are any other known locations. If there is,
+// the miner goes to the location, otherwise it keeps looking.
+-found_resource_at(R,X,Y) : pos(back,X,Y)
+	<-  +pos(back,X,Y);
+      +checking_cells;
+      !check_for_resources.
+   
++!warn_others_about_resource : not found(R)
+   <- true.
+
+// If miner finds current needed resource
 +!check_for_resources
    :  resource_needed(R) & found(R)
    <- !stop_checking;
       !take(R,boss);
-      !continue_mine.   
-
+      !continue_mine.
+	  
+// If miner dont find current needed resource, and there is no known location of it
 +!check_for_resources
-   :  resource_needed(R) & not found(R)
-   <- 
-   .wait(100);
-   //!check_for_found_resources.
-  move_to(next_cell).
-
-+!check_for_found_resources:
-  resource_needed(R) & .count(resource_location(_,R,_,_), N) & N > 0
-  <- .findall(locs(H,X,Y), resource_location(H,R,X,Y), P);  // adds to P all known locations for resource R
-      .sort(P,T);                                           // adds to T the ordered list P (as hipotenuse is the first parameter, it will sort by it)
-      .nth(0, T, L);                                        // adds to L the first element of T (smallest hipotenuse)
-      .print(L).
+   :  resource_needed(R) & not found(R) & not found_resource_at(R,X,Y)
+   <- .wait(200);
+   		move_to(next_cell).
 
 
-+!check_for_found_resources:
-  resource_needed(R) & .count(resource_location(_,R,_,_), N) & not N > 0
-  <- //.wait(100);
-    //move_to(next_cell);
-    !check_for_resources.
-
-
-// if some resource was found, but not the one they need right now, add its location to the beliefs
-+found(FOUND): not resource_needed(FOUND) & resource_needed(CURRENT) & FOUND > CURRENT
-   <- ?my_pos(X,Y);                                         // find current location
-      ?pos(boss,BX,BY);                                     // gets boss location
-      hipotenuse(math.abs(BX-X), math.abs(BY-Y), H);       //calculates distance from builder
-      .print("Resource found at (",X,",",Y,") and hipotenuse is ", H);
-      -resource_location(H,FOUND,X,Y);                      // first removes belief so it doesnt duplicate in case it is not the first time agent is passing here
-      +resource_location(H,FOUND,X,Y);                      // add this resource location to beliefs 
-      //.broadcast(untell, resource_location(H,FOUND,X,Y)); // remove first, same reason above
-      .broadcast(tell, resource_location(H,FOUND,X,Y)).     // warn others about this location
+// If miner doesnt find current needed resource at the current cell but there is
+// a known location of it elsewhere
++!check_for_resources
+   :  resource_needed(R) & not found(R) & found_resource_at(R,P,Q)
+   <- ?my_pos(X,Y);
+   	  +pos(back,P,Q);
+      -checking_cells;
+	    !continue_mine.
 
 +!stop_checking : true
    <- ?my_pos(X,Y);
@@ -52,17 +57,27 @@ resource_needed(1).
       -checking_cells.
 
 +!take(R,B) : true
-   <- .wait(100);
+   <- .wait(200);
    	  mine(R);
       !go(B);
       drop(R).
 
 +!continue_mine : true
    <- !go(back);
+   	  !check_for_remaining_resource;
       -pos(back,X,Y);
       +checking_cells;
       !check_for_resources.
 
+// Checks if there is still R on the cell
++!check_for_remaining_resource : resource_needed(R) & found(R)
+	<- true.
+
+// If there is not is not R left on the cell, warn other about it
++!check_for_remaining_resource : resource_needed(R) & not found(R) 
+	<- -found_resource_at(R,X,Y);
+	.broadcast(untell,found_resource_at(R,X,Y)).
+	
 +!go(Position) 
    :  pos(Position,X,Y) & my_pos(X,Y)
    <- true.
@@ -76,15 +91,9 @@ resource_needed(1).
 @psf[atomic]
 +!search_for(NewResource) : resource_needed(OldResource)
    <- +resource_needed(NewResource);
-      // drop all beliefs about old resource
-      .abolish(resource_location(_,OldResource,_,_));
       -resource_needed(OldResource).
 
 @pbf[atomic]
 +building_finished : true
    <- .drop_all_desires;
       !go(boss).
-      
-
-// calculates hipotenuse
-hipotenuse(X,Y,H) :- H = math.sqrt((X**2) + (Y**2)).
